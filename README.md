@@ -39,3 +39,5 @@ Repository to accompany the following blog posts (but for iOS):
 ## Original sources
 [MetalKit/metal](https://github.com/MetalKit/metal)
 
+## TODO
+ - [ ] Format all projects to one template
