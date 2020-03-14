@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DD8B7D54241B8E2E006A4CF6 /* Part 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Part 1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD8B7D54241B8E2E006A4CF6 /* Part 01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Part 01.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8B7D57241B8E2E006A4CF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD8B7D5B241B8E2E006A4CF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DD8B7D5E241B8E2E006A4CF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		DD8B7D4B241B8E2E006A4CF6 = {
 			isa = PBXGroup;
 			children = (
-				DD8B7D56241B8E2E006A4CF6 /* Part 1 */,
+				DD8B7D56241B8E2E006A4CF6 /* Part 01 */,
 				DD8B7D55241B8E2E006A4CF6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,12 +48,12 @@
 		DD8B7D55241B8E2E006A4CF6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD8B7D54241B8E2E006A4CF6 /* Part 1.app */,
+				DD8B7D54241B8E2E006A4CF6 /* Part 01.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DD8B7D56241B8E2E006A4CF6 /* Part 1 */ = {
+		DD8B7D56241B8E2E006A4CF6 /* Part 01 */ = {
 			isa = PBXGroup;
 			children = (
 				DD8B7D6B241B8E49006A4CF6 /* Resources */,
@@ -61,7 +61,7 @@
 				DD8B7D6C241B8E4F006A4CF6 /* View Controllers */,
 				DDAC4AA6241CCED2009BB0D3 /* Views */,
 			);
-			path = "Part 1";
+			path = "Part 01";
 			sourceTree = "<group>";
 		};
 		DD8B7D6B241B8E49006A4CF6 /* Resources */ = {
@@ -116,7 +116,7 @@
 			);
 			name = "Part 1";
 			productName = "Part 1";
-			productReference = DD8B7D54241B8E2E006A4CF6 /* Part 1.app */;
+			productReference = DD8B7D54241B8E2E006A4CF6 /* Part 01.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -318,14 +318,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QZTJ8W8QRE;
-				INFOPLIST_FILE = "$(SRCROOT)/Part 1/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Part 01/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "un0dvend1g.Part-1";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "un0dvend1g.Part-01";
+				PRODUCT_NAME = "Part 01";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -337,14 +337,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QZTJ8W8QRE;
-				INFOPLIST_FILE = "$(SRCROOT)/Part 1/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Part 01/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "un0dvend1g.Part-1";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "un0dvend1g.Part-01";
+				PRODUCT_NAME = "Part 01";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
