@@ -13,6 +13,7 @@
 		DD8B7D84241B950A006A4CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD8B7D83241B950A006A4CF6 /* Assets.xcassets */; };
 		DD8B7D87241B950A006A4CF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD8B7D85241B950A006A4CF6 /* LaunchScreen.storyboard */; };
 		DD8B7D92241B9DE2006A4CF6 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = DD8B7D91241B9DE2006A4CF6 /* Shaders.metal */; };
+		DDA6402A241CD01A00B7527A /* MetalMTKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA64029241CD01A00B7527A /* MetalMTKView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		DD8B7D86241B950A006A4CF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD8B7D88241B950A006A4CF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD8B7D91241B9DE2006A4CF6 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		DDA64029241CD01A00B7527A /* MetalMTKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalMTKView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				DD8B7D8E241B9520006A4CF6 /* Resources */,
 				DD8B7D90241B952F006A4CF6 /* Storyboards */,
 				DD8B7D8F241B9529006A4CF6 /* View Controllers */,
+				DDAC4AA9241CCFFB009BB0D3 /* Views */,
 			);
 			path = "Part 2";
 			sourceTree = "<group>";
@@ -89,6 +92,14 @@
 				DD8B7D80241B9509006A4CF6 /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		DDAC4AA9241CCFFB009BB0D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DDA64029241CD01A00B7527A /* MetalMTKView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +176,7 @@
 				DD8B7D92241B9DE2006A4CF6 /* Shaders.metal in Sources */,
 				DD8B7D7F241B9509006A4CF6 /* ViewController.swift in Sources */,
 				DD8B7D7B241B9509006A4CF6 /* AppDelegate.swift in Sources */,
+				DDA6402A241CD01A00B7527A /* MetalMTKView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
