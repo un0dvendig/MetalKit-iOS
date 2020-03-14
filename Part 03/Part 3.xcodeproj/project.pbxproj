@@ -14,6 +14,7 @@
 		DD8B7DAC241BA08C006A4CF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD8B7DAA241BA08C006A4CF6 /* LaunchScreen.storyboard */; };
 		DD8B7DB7241BA10E006A4CF6 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = DD8B7DB6241BA10E006A4CF6 /* Shaders.metal */; };
 		DD8B7DE6241BB054006A4CF6 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8B7DE5241BB054006A4CF6 /* Vertex.swift */; };
+		DDA6402D241CD0F000B7527A /* MetalMTKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6402C241CD0F000B7527A /* MetalMTKView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		DD8B7DAD241BA08C006A4CF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD8B7DB6241BA10E006A4CF6 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		DD8B7DE5241BB054006A4CF6 /* Vertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
+		DDA6402C241CD0F000B7527A /* MetalMTKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalMTKView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				DD8B7DB3241BA09C006A4CF6 /* Resources */,
 				DD8B7DB5241BA0AB006A4CF6 /* Storyboards */,
 				DD8B7DB4241BA0A3006A4CF6 /* View Controllers */,
+				DDA6402B241CD0DB00B7527A /* Views */,
 			);
 			path = "Part 3";
 			sourceTree = "<group>";
@@ -100,6 +103,14 @@
 				DD8B7DE5241BB054006A4CF6 /* Vertex.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DDA6402B241CD0DB00B7527A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DDA6402C241CD0F000B7527A /* MetalMTKView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +186,7 @@
 			files = (
 				DD8B7DB7241BA10E006A4CF6 /* Shaders.metal in Sources */,
 				DD8B7DA4241BA08B006A4CF6 /* ViewController.swift in Sources */,
+				DDA6402D241CD0F000B7527A /* MetalMTKView.swift in Sources */,
 				DD8B7DE6241BB054006A4CF6 /* Vertex.swift in Sources */,
 				DD8B7DA0241BA08B006A4CF6 /* AppDelegate.swift in Sources */,
 			);

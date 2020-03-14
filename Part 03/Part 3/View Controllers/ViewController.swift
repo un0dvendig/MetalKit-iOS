@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupMetalKit()
+//        setupMetalKit()
     }
     
     // MARK: - Private methods
