@@ -1,19 +1,16 @@
 //
-//  ViewController.swift
-//  Part 4-5
+//  MetalMTKView.swift
+//  Part 04-05
 //
-//  Created by Eugene Ilyin on 13.03.2020.
+//  Created by Eugene Ilyin on 14.03.2020.
 //  Copyright © 2020 Eugene Ilyin. All rights reserved.
 //
 
-import UIKit
+import Foundation
+
 import MetalKit
 
-class ViewController: UIViewController {
-
-    // MARK: - Outlets
-    
-    @IBOutlet var mtkView: MTKView!
+class MetalMTKView: MTKView {
     
     // MARK: - Properties
     
@@ -21,49 +18,49 @@ class ViewController: UIViewController {
     var renderPipelineState: MTLRenderPipelineState!
     var uniformBuffer: MTLBuffer!
     
-    // MARK: - View life cycle
+    // MARK: - Initialization
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupMetalKit()
-    }
-    
-    // MARK: - Private methods
-    
-    private func setupMetalKit() {
-        mtkView.delegate = self
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
         
         guard let device = MTLCreateSystemDefaultDevice() else { return }
-        mtkView.device = device
+        self.device = device
         createBuffers(for: device)
         registerShaders(for: device)
     }
     
-    private func render(in view: MTKView) {
-        guard let device = view.device else { return }
+    // MARK: - MTKView methods
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         
-        guard let renderPassDescriptor = view.currentRenderPassDescriptor,
-            let drawable = view.currentDrawable else {
-                return
+        render()
+    }
+    
+    // MARK: - Private methods
+    
+    private func render() {
+        if let device = self.device,
+            let renderPassDescriptor = currentRenderPassDescriptor,
+            let drawable = currentDrawable {
+        
+            renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
+            
+            guard let commandBuffer = device.makeCommandQueue()?.makeCommandBuffer(),
+                let commandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) else {
+                    return
+            }
+            
+            commandEncoder.setRenderPipelineState(renderPipelineState)
+            commandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
+            commandEncoder.setVertexBuffer(uniformBuffer, offset: 0, index: 1)
+            
+            commandEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 3, instanceCount: 1)
+            
+            commandEncoder.endEncoding()
+            commandBuffer.present(drawable)
+            commandBuffer.commit()
         }
-        
-        renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
-        
-        guard let commandBuffer = device.makeCommandQueue()?.makeCommandBuffer(),
-            let commandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) else {
-                return
-        }
-        
-        commandEncoder.setRenderPipelineState(renderPipelineState)
-        commandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        commandEncoder.setVertexBuffer(uniformBuffer, offset: 0, index: 1)
-        
-        commandEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 3, instanceCount: 1)
-        
-        commandEncoder.endEncoding()
-        commandBuffer.present(drawable)
-        commandBuffer.commit()
     }
     
     private func createBuffers(for device: MTLDevice) {
@@ -104,18 +101,7 @@ class ViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
     }
 }
 
-// MARK: - MTKViewDelegate
 
-extension ViewController: MTKViewDelegate {
-    func draw(in view: MTKView) {
-        render(in: view)
-    }
-    
-    func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        print("mtkView(_:, drawableSizeWillChange:)")
-    }
-}
