@@ -72,11 +72,11 @@ class MetalMTKView: MTKView {
         let floatMatrixSize = MemoryLayout<Float>.size * 16 // Memory to hold 4x4 matrix
         uniformBuffer = device.makeBuffer(length: floatMatrixSize, options: [])
         let uniformBufferPointer = uniformBuffer.contents()
-        let modelMatrix = Matrix().modelMatrix(matrix: Matrix()).m
+        let theModelMatrix = modelMatrix(matrix: Matrix()).m
         
         // TODO: Find more 'Swifty' way to deal with pointers instead of using `memcpy`
         // memcpy(uniformBufferPointer, modelMatrix, floatMatrixSize)
-        uniformBufferPointer.copyMemory(from: modelMatrix, byteCount: floatMatrixSize) // possible solution?
+        uniformBufferPointer.copyMemory(from: theModelMatrix, byteCount: floatMatrixSize) // possible solution?
     }
     
     private func registerShaders(for device: MTLDevice) {
