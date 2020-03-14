@@ -12,6 +12,7 @@
 		DD8B7D5F241B8E2E006A4CF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD8B7D5D241B8E2E006A4CF6 /* Main.storyboard */; };
 		DD8B7D61241B8E2F006A4CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD8B7D60241B8E2F006A4CF6 /* Assets.xcassets */; };
 		DD8B7D64241B8E2F006A4CF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD8B7D62241B8E2F006A4CF6 /* LaunchScreen.storyboard */; };
+		DDAC4AA8241CCEEF009BB0D3 /* MetalMTKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC4AA7241CCEEF009BB0D3 /* MetalMTKView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		DD8B7D60241B8E2F006A4CF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD8B7D63241B8E2F006A4CF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD8B7D65241B8E2F006A4CF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDAC4AA7241CCEEF009BB0D3 /* MetalMTKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalMTKView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				DD8B7D6B241B8E49006A4CF6 /* Resources */,
 				DD8B7D6D241B8E57006A4CF6 /* Storyboards */,
 				DD8B7D6C241B8E4F006A4CF6 /* View Controllers */,
+				DDAC4AA6241CCED2009BB0D3 /* Views */,
 			);
 			path = "Part 1";
 			sourceTree = "<group>";
@@ -86,6 +89,14 @@
 				DD8B7D5D241B8E2E006A4CF6 /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		DDAC4AA6241CCED2009BB0D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DDAC4AA7241CCEEF009BB0D3 /* MetalMTKView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +172,7 @@
 			files = (
 				DD8B7D5C241B8E2E006A4CF6 /* ViewController.swift in Sources */,
 				DD8B7D58241B8E2E006A4CF6 /* AppDelegate.swift in Sources */,
+				DDAC4AA8241CCEEF009BB0D3 /* MetalMTKView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
