@@ -39,6 +39,10 @@ Repository to accompany the following blog posts (but for iOS):
 ## Original sources
 [MetalKit/metal](https://github.com/MetalKit/metal)
 
+## Known issues
+ - Part 06 does not work properly neither on simulator nor on real device
+ - Parts 07+ (08, 09, 10...) contain visual bug (red line on the side of device); *as well as Playground versions*
+
 ## TODO
  - [ ] Format all projects to one template
  - [X] Format first `n` projects so they use MTKView subclass (as in Part 08 and 09)
