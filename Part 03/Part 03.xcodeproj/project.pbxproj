@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DD8B7D9C241BA08B006A4CF6 /* Part 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Part 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD8B7D9C241BA08B006A4CF6 /* Part 03.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Part 03.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8B7D9F241BA08B006A4CF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD8B7DA3241BA08B006A4CF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DD8B7DA6241BA08B006A4CF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 		DD8B7D93241BA08B006A4CF6 = {
 			isa = PBXGroup;
 			children = (
-				DD8B7D9E241BA08B006A4CF6 /* Part 3 */,
+				DD8B7D9E241BA08B006A4CF6 /* Part 03 */,
 				DD8B7D9D241BA08B006A4CF6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,12 +52,12 @@
 		DD8B7D9D241BA08B006A4CF6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD8B7D9C241BA08B006A4CF6 /* Part 3.app */,
+				DD8B7D9C241BA08B006A4CF6 /* Part 03.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DD8B7D9E241BA08B006A4CF6 /* Part 3 */ = {
+		DD8B7D9E241BA08B006A4CF6 /* Part 03 */ = {
 			isa = PBXGroup;
 			children = (
 				DD8B7DB8241BA1FB006A4CF6 /* Models */,
@@ -66,7 +66,7 @@
 				DD8B7DB4241BA0A3006A4CF6 /* View Controllers */,
 				DDA6402B241CD0DB00B7527A /* Views */,
 			);
-			path = "Part 3";
+			path = "Part 03";
 			sourceTree = "<group>";
 		};
 		DD8B7DB3241BA09C006A4CF6 /* Resources */ = {
@@ -116,9 +116,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DD8B7D9B241BA08B006A4CF6 /* Part 3 */ = {
+		DD8B7D9B241BA08B006A4CF6 /* Part 03 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD8B7DB0241BA08C006A4CF6 /* Build configuration list for PBXNativeTarget "Part 3" */;
+			buildConfigurationList = DD8B7DB0241BA08C006A4CF6 /* Build configuration list for PBXNativeTarget "Part 03" */;
 			buildPhases = (
 				DD8B7D98241BA08B006A4CF6 /* Sources */,
 				DD8B7D99241BA08B006A4CF6 /* Frameworks */,
@@ -128,9 +128,9 @@
 			);
 			dependencies = (
 			);
-			name = "Part 3";
+			name = "Part 03";
 			productName = "Part 3";
-			productReference = DD8B7D9C241BA08B006A4CF6 /* Part 3.app */;
+			productReference = DD8B7D9C241BA08B006A4CF6 /* Part 03.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -148,7 +148,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DD8B7D97241BA08B006A4CF6 /* Build configuration list for PBXProject "Part 3" */;
+			buildConfigurationList = DD8B7D97241BA08B006A4CF6 /* Build configuration list for PBXProject "Part 03" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -161,7 +161,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DD8B7D9B241BA08B006A4CF6 /* Part 3 */,
+				DD8B7D9B241BA08B006A4CF6 /* Part 03 */,
 			);
 		};
 /* End PBXProject section */
@@ -334,14 +334,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QZTJ8W8QRE;
-				INFOPLIST_FILE = "$(SRCROOT)/Part 3/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Part 03/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "un0dvend1g.Part-3";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "un0dvend1g.Part-03";
+				PRODUCT_NAME = "Part 03";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -353,14 +353,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QZTJ8W8QRE;
-				INFOPLIST_FILE = "$(SRCROOT)/Part 3/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Part 03/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "un0dvend1g.Part-3";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "un0dvend1g.Part-03";
+				PRODUCT_NAME = "Part 03";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -369,7 +369,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DD8B7D97241BA08B006A4CF6 /* Build configuration list for PBXProject "Part 3" */ = {
+		DD8B7D97241BA08B006A4CF6 /* Build configuration list for PBXProject "Part 03" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD8B7DAE241BA08C006A4CF6 /* Debug */,
@@ -378,7 +378,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD8B7DB0241BA08C006A4CF6 /* Build configuration list for PBXNativeTarget "Part 3" */ = {
+		DD8B7DB0241BA08C006A4CF6 /* Build configuration list for PBXNativeTarget "Part 03" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD8B7DB1241BA08C006A4CF6 /* Debug */,
