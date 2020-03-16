@@ -46,4 +46,3 @@ Repository to accompany the following blog posts (but for iOS):
 ## TODO
  - [ ] Format all projects to one template
  - [X] Format first `n` projects so they use MTKView subclass (as in Part 08 and 09)
- - [X] Create Part 10 iOS version
