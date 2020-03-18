@@ -25,7 +25,6 @@ Repository to accompany the following blog posts (but for iOS):
 - [Ambient Occlusion in Metal](http://metalkit.org/2017/03/22/ambient-occlusion-in-metal.html)
 - [Working with memory in Metal part 1](http://metalkit.org/2017/04/30/working-with-memory-in-metal.html)
 - [Working with memory in Metal part 2](http://metalkit.org/2017/05/26/working-with-memory-in-metal-part-2.html)
-- [Introducing Metal 2](http://metalkit.org/2017/06/30/introducing-metal-2.html)
 - [Using ARKit with Metal part 1](http://metalkit.org/2017/07/29/using-arkit-with-metal.html)
 - [Using ARKit with Metal part 2](http://metalkit.org/2017/08/31/using-arkit-with-metal-part-2.html)
 - [Working with Particles in Metal part 1](http://metalkit.org/2017/09/30/working-with-particles-in-metal.html)
@@ -41,6 +40,9 @@ Repository to accompany the following blog posts (but for iOS):
 
 ## Additional posts
 - [The Model I/O Framework](http://metalkit.org/2016/08/30/the-model-i-o-framework.html)
+
+## Skipped posts
+- [Introducing Metal 2](http://metalkit.org/2017/06/30/introducing-metal-2.html)
 
 ## Known issues
  - Part 06 does not work properly neither on simulator nor on real device
