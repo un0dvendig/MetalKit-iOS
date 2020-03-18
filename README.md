@@ -39,6 +39,9 @@ Repository to accompany the following blog posts (but for iOS):
 ## Original sources
 [MetalKit/metal](https://github.com/MetalKit/metal)
 
+## Additional posts
+- [The Model I/O Framework](http://metalkit.org/2016/08/30/the-model-i-o-framework.html)
+
 ## Known issues
  - Part 06 does not work properly neither on simulator nor on real device
  - Parts 07+ (08, 09, 10...) contain visual bug (red line on the side of device); *as well as Playground versions*
