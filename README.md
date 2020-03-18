@@ -36,7 +36,7 @@ Repository to accompany the following blog posts (but for iOS):
 - [Introduction to compute using Metal](http://metalkit.org/2019/01/31/intro-to-metal-compute.html)
 
 
-## Original sources
+## Original source
 [MetalKit/metal](https://github.com/MetalKit/metal)
 
 ## Additional posts
