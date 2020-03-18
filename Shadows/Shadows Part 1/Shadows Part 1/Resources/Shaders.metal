@@ -1,6 +1,6 @@
 //
 //  Shaders.metal
-//  Part 15
+//  Shadows Part 1
 //
 //  Created by Eugene Ilyin on 14.03.2020.
 //  Copyright © 2020 Eugene Ilyin. All rights reserved.
