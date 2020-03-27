@@ -17,11 +17,22 @@ float dist(float2 point, float2 center, float radius) {
 
 kernel void compute(texture2d<float, access::write> output [[ texture(0) ]],
                     uint2 gid [[ thread_position_in_grid ]]) {
+    if (gid.x >= output.get_width() || gid.y >= output.get_height()) {
+        return;
+    }
+    
     int width = output.get_width();
     int height = output.get_height();
     
     float2 uv = float2(gid) / float2(width, height);
     uv = uv * 2.0 - 1.0;
+    
+    // iOS workaround
+    if (width > height) {
+        uv.x /= .5;
+    } else {
+        uv.y /= .5;
+    }
     
     float distToCircle = dist(uv, float2(0), 0.5);
     float distToCircle2 = dist(uv, float2(-0.1, 0.1), 0.5);
