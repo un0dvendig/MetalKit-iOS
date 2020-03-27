@@ -165,6 +165,9 @@ kernel void compute(texture2d<float, access::write> output [[ texture(0) ]],
                     constant float &timer [[ buffer(1) ]],
                     constant float2 &touch [[ buffer(2) ]],
                     uint2 gid [[ thread_position_in_grid ]]) {
+    if (gid.x >= output.get_width() || gid.y >= output.get_height()) {
+        return;
+    }
     int width = output.get_width();
     int height = output.get_height();
     
