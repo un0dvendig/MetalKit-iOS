@@ -19,6 +19,9 @@ public class MetalMTKView: MTKView {
 //        "using namespace metal;" +
 //        "kernel void k(texture2d<float, access::write> o[[ texture(0) ]]," +
 //        "             uint2 gid [[ thread_position_in_grid ]]) {" +
+//    "   if (gid.x >= o.get_width() || gid.y >= o.get_height()) {" +
+//    "       return;" +
+//    "   }" +
 //        "   int width = o.get_width();" +
 //        "   int height = o.get_height();" +
 //        "   float2 uv = float2(gid) / float2(width, height);" +
@@ -49,6 +52,9 @@ public class MetalMTKView: MTKView {
         "using namespace metal;" +
         "kernel void k(texture2d<float, access::write> o[[ texture(0) ]]," +
         "             uint2 gid [[ thread_position_in_grid ]]) {" +
+        "   if (gid.x >= o.get_width() || gid.y >= o.get_height()) {" +
+        "       return;" +
+        "   }" +
         "   int width = o.get_width();" +
         "   int height = o.get_height();" +
         "   float2 uv = float2(gid) / float2(width, height);" +
@@ -103,18 +109,66 @@ public class MetalMTKView: MTKView {
     override public func draw(_ rect: CGRect) {
         super.draw(rect)
         
-        if let drawable = currentDrawable,
+        if let device = self.device,
+            let drawable = currentDrawable,
            let commandBuffer = commandQueue.makeCommandBuffer(),
            let commandEncoder = commandBuffer.makeComputeCommandEncoder() {
             commandEncoder.setComputePipelineState(computePipelineState)
             commandEncoder.setTexture(drawable.texture, index: 0)
-            let groups = MTLSize(width: Int(self.frame.width)/4, height: Int(self.frame.height)/4, depth: 1)
-            let threads = MTLSize(width: 8, height: 8,depth: 1)
-            commandEncoder.dispatchThreadgroups(groups,threadsPerThreadgroup: threads)
+            
+            handleThreads(device: device, encoder: commandEncoder)
+            
             commandEncoder.endEncoding()
             commandBuffer.present(drawable)
             commandBuffer.commit()
         }
+    }
+    
+    // MARK: - Private methods
+    
+    private func handleThreads(device: MTLDevice, encoder commandEncoder: MTLComputeCommandEncoder) {
+        // threadsPerThreadgroup
+        let threadWidth = computePipelineState.threadExecutionWidth
+        let threadHeight = computePipelineState.maxTotalThreadsPerThreadgroup / threadWidth
+        let threadsPerThreadgroup = MTLSizeMake(threadWidth, threadHeight, 1)
+        
+        // threadgroupsPerGrid / threadsPerGrid
+        if #available(iOS 11.0, *) {
+            dispatchThreads(device: device,
+                            commandEncoder: commandEncoder,
+                            threadsPerThreadgroup: threadsPerThreadgroup)
+        } else {
+            dispatchThreadgroups(commandEncoder: commandEncoder,
+                                 threadsPerThreadgroup: threadsPerThreadgroup)
+        }
+    }
+    
+    @available(iOS 11.0, *)
+    private func dispatchThreads(device: MTLDevice, commandEncoder: MTLComputeCommandEncoder, threadsPerThreadgroup: MTLSize) {
+        
+        if device.supportsFeatureSet(.iOS_GPUFamily4_v1) {
+            let drawableWidth = Int(drawableSize.width)
+            let drawableHeight = Int(drawableSize.height)
+            let threadsPerGrid = MTLSize(width: drawableWidth,
+                                    height: drawableHeight,
+                                    depth: 1)
+        
+            commandEncoder.dispatchThreads(threadsPerGrid, threadsPerThreadgroup: threadsPerThreadgroup)
+        } else {
+            dispatchThreadgroups(commandEncoder: commandEncoder,
+                                 threadsPerThreadgroup: threadsPerThreadgroup)
+        }
+    }
+    
+    private func dispatchThreadgroups(commandEncoder: MTLComputeCommandEncoder, threadsPerThreadgroup: MTLSize) {
+        let drawableWidth = Int(drawableSize.width)
+        let drawableHeight = Int(drawableSize.height)
+        let w = threadsPerThreadgroup.width
+        let h = threadsPerThreadgroup.height
+        let threadgroupsPerGrid = MTLSize(width: (drawableWidth + w - 1) / w,
+                                    height: (drawableHeight + h - 1) / h,
+                                    depth: 1)
+        commandEncoder.dispatchThreadgroups(threadgroupsPerGrid, threadsPerThreadgroup: threadsPerThreadgroup)
     }
     
 }
