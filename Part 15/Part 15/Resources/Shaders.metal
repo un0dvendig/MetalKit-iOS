@@ -13,6 +13,9 @@ kernel void compute(texture2d<float, access::write> output [[ texture(0) ]],
                     texture2d<float, access::sample> input [[ texture(1) ]],
                     constant float &timer [[ buffer(0) ]],
                     uint2 gid [[ thread_position_in_grid ]]) {
+    if (gid.x >= output.get_width() || gid.y >= output.get_height()) {
+        return;
+    }
     int width = input.get_width();
     int height = input.get_height();
     

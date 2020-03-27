@@ -43,7 +43,8 @@ public class MetalMTKView: MTKView {
     override public func draw(_ rect: CGRect) {
         super.draw(rect)
 
-        if let drawable = currentDrawable,
+        if let device = self.device,
+            let drawable = currentDrawable,
             let commandBuffer = queue.makeCommandBuffer(),
             let commandEncoder = commandBuffer.makeComputeCommandEncoder() {
             
@@ -53,13 +54,8 @@ public class MetalMTKView: MTKView {
             commandEncoder.setTexture(texture, index: 1)
             update()
             
-            let threadGroupCount = MTLSize(width: 8, height: 8, depth: 1)
-            let threadGroups = MTLSize(width: drawable.texture.width / threadGroupCount.width,
-                                       height: drawable.texture.height / threadGroupCount.height,
-                                       depth: 1)
+            handleThreads(device: device, encoder: commandEncoder)
             
-            commandEncoder.dispatchThreadgroups(threadGroups,
-                                                threadsPerThreadgroup: threadGroupCount)
             commandEncoder.endEncoding()
             commandBuffer.present(drawable)
             commandBuffer.commit()
@@ -105,4 +101,50 @@ public class MetalMTKView: MTKView {
             print(error.localizedDescription)
         }
     }
+    
+    private func handleThreads(device: MTLDevice, encoder commandEncoder: MTLComputeCommandEncoder) {
+        // threadsPerThreadgroup
+        let threadWidth = computePipelineState.threadExecutionWidth
+        let threadHeight = computePipelineState.maxTotalThreadsPerThreadgroup / threadWidth
+        let threadsPerThreadgroup = MTLSizeMake(threadWidth, threadHeight, 1)
+        
+        // threadgroupsPerGrid / threadsPerGrid
+        if #available(iOS 11.0, *) {
+            dispatchThreads(device: device,
+                            commandEncoder: commandEncoder,
+                            threadsPerThreadgroup: threadsPerThreadgroup)
+        } else {
+            dispatchThreadgroups(commandEncoder: commandEncoder,
+                                 threadsPerThreadgroup: threadsPerThreadgroup)
+        }
+    }
+    
+    @available(iOS 11.0, *)
+    private func dispatchThreads(device: MTLDevice, commandEncoder: MTLComputeCommandEncoder, threadsPerThreadgroup: MTLSize) {
+        
+        if device.supportsFeatureSet(.iOS_GPUFamily4_v1) {
+            let drawableWidth = Int(drawableSize.width)
+            let drawableHeight = Int(drawableSize.height)
+            let threadsPerGrid = MTLSize(width: drawableWidth,
+                                    height: drawableHeight,
+                                    depth: 1)
+        
+            commandEncoder.dispatchThreads(threadsPerGrid, threadsPerThreadgroup: threadsPerThreadgroup)
+        } else {
+            dispatchThreadgroups(commandEncoder: commandEncoder,
+                                 threadsPerThreadgroup: threadsPerThreadgroup)
+        }
+    }
+    
+    private func dispatchThreadgroups(commandEncoder: MTLComputeCommandEncoder, threadsPerThreadgroup: MTLSize) {
+        let drawableWidth = Int(drawableSize.width)
+        let drawableHeight = Int(drawableSize.height)
+        let w = threadsPerThreadgroup.width
+        let h = threadsPerThreadgroup.height
+        let threadgroupsPerGrid = MTLSize(width: (drawableWidth + w - 1) / w,
+                                    height: (drawableHeight + h - 1) / h,
+                                    depth: 1)
+        commandEncoder.dispatchThreadgroups(threadgroupsPerGrid, threadsPerThreadgroup: threadsPerThreadgroup)
+    }
+
 }
